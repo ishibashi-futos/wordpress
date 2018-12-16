@@ -1,14 +1,14 @@
 version: '3.2'
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:5.7
     # volumes:
     # ./db:/var/lib/mysql
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: root_pw
       MYSQL_DATABASE: wordpress
-      MYSQL_USER: username
-      MYSQL_PASSWORD: password
+      MYSQL_USER: mysql_user
+      MYSQL_PASSWORD: mysql_pw
   wordpress:
     build: ./dockerfile/
     ports:
@@ -17,3 +17,8 @@ services:
     #   - ./wp:/var/www/html
     depends_on:
       - mysql
+    environment:
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: mysql_user
+      WORDPRESS_DB_PASSWORD: mysql_pw
+

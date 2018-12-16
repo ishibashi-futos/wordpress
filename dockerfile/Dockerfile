@@ -1,5 +1,7 @@
 FROM php:5.6-apache
 
+# reference url https://github.com/docker-library/wordpress/blob/f7acf35a2b49b7a45d71b4c5fc8797042f34d4bd/php5.6/apache/Dockerfile
+
 # install the PHP extensions we need
 RUN set -ex; \
 	\
